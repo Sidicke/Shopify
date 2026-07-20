@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="{{ 'premium-home.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<div class="cta-banner">
+  <div class="bc-container">
+    <div class="cta-banner__inner bc-reveal">
+      {%- if section.settings.title != blank -%}
+        <h2 class="cta-banner__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <p class="cta-banner__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+      <div class="cta-banner__actions">
+        {%- if section.settings.btn_primary_text != blank -%}
+          <a href="{{ section.settings.btn_primary_url | default: '#' }}" class="btn btn-secondary btn-lg">
+            {{ section.settings.btn_primary_text }}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3.33337 8H12.6667M12.6667 8L8.00004 3.33337M12.6667 8L8.00004 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.btn_secondary_text != blank -%}
+          <a href="{{ section.settings.btn_secondary_url | default: '#' }}" class="btn btn-outline btn-lg">
+            {{ section.settings.btn_secondary_text }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Bannière CTA",
+  "tag": "section",
+  "class": "section section-cta-banner",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Prêt à passer à l'étape supérieure ?"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte",
+      "default": "Rejoignez les commerçants et importateurs qui ont choisi BAO CONSILIUM pour développer leur activité sans limites."
+    },
+    {
+      "type": "header",
+      "content": "Boutons"
+    },
+    {
+      "type": "text",
+      "id": "btn_primary_text",
+      "label": "Texte bouton principal",
+      "default": "Commencer maintenant"
+    },
+    {
+      "type": "url",
+      "id": "btn_primary_url",
+      "label": "Lien bouton principal"
+    },
+    {
+      "type": "text",
+      "id": "btn_secondary_text",
+      "label": "Texte bouton secondaire",
+      "default": "Nous contacter"
+    },
+    {
+      "type": "url",
+      "id": "btn_secondary_url",
+      "label": "Lien bouton secondaire"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bannière CTA",
+      "settings": {
+        "title": "Prêt à passer à l'étape supérieure ?",
+        "text": "Rejoignez les commerçants et importateurs qui ont choisi BAO CONSILIUM pour développer leur activité sans limites.",
+        "btn_primary_text": "Commencer maintenant",
+        "btn_secondary_text": "Nous contacter"
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,478 @@
+/* ============================================================
+   PAGES RESTANTES PREMIUM — Bao Consilium
+   Blog · Article · Search · 404 · Account · Login/Register · Page
+   ============================================================ */
+
+/* ---------------------------------------
+   1. BLOG LISTING (body.template-blog)
+   --------------------------------------- */
+body.template-blog .main-blog {
+  padding: var(--bc-space-8) 0;
+}
+
+body.template-blog .blog-articles {
+  gap: var(--bc-space-4);
+}
+
+body.template-blog .article-card {
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-radius-md);
+  overflow: hidden;
+  background: var(--bc-blanc);
+}
+
+body.template-blog .article-card__image-wrapper {
+  overflow: hidden;
+}
+
+body.template-blog .article-card__info {
+  padding: var(--bc-space-4);
+}
+
+body.template-blog .article-card__title {
+  font-family: var(--bc-font-heading) !important;
+  font-size: var(--bc-text-base) !important;
+  font-weight: 500 !important;
+}
+
+body.template-blog .article-card__title a {
+  text-decoration: none;
+}
+
+body.template-blog .article-card__title a:hover {
+  color: var(--bc-or);
+}
+
+body.template-blog .article-card__excerpt {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-xs);
+  line-height: 1.6;
+  color: var(--bc-text-secondary);
+  margin-top: var(--bc-space-2);
+}
+
+body.template-blog .article-card__link {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-xs);
+  font-weight: 500;
+  color: var(--bc-bleu);
+  text-decoration: none;
+}
+
+body.template-blog .article-card__link:hover {
+  color: var(--bc-or);
+}
+
+/* ---------------------------------------
+   2. ARTICLE PAGE (body.template-article)
+   --------------------------------------- */
+body.template-article main {
+  padding: var(--bc-space-8) 0;
+}
+
+body.template-article .article-template__hero-container {
+  overflow: hidden;
+  overflow: hidden;
+  margin-bottom: var(--bc-space-8);
+}
+
+body.template-article .article-template__title {
+  font-family: var(--bc-font-heading);
+  font-size: clamp(var(--bc-text-2xl), 4vw, var(--bc-text-4xl));
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--bc-text);
+  margin: 0 0 var(--bc-space-3);
+}
+
+body.template-article .article-template__date,
+body.template-article .article-template__author {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-xs);
+  color: var(--bc-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+body.template-article .article-template__content {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-base);
+  line-height: 1.8;
+  color: var(--bc-text);
+  margin-top: var(--bc-space-8);
+  max-width: 720px;
+}
+
+body.template-article .article-template__content h2,
+body.template-article .article-template__content h3 {
+  font-family: var(--bc-font-heading);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: var(--bc-space-8);
+}
+
+body.template-article .article-template__content img {
+  border-radius: var(--bc-radius-lg);
+  margin: var(--bc-space-6) 0;
+}
+
+body.template-article .article-template__share {
+  margin-top: var(--bc-space-8);
+  padding-top: var(--bc-space-6);
+  border-top: 1px solid var(--bc-border);
+}
+
+body.template-article .share-button__button {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-sm);
+  font-weight: 500;
+  color: var(--bc-text-secondary);
+  transition: color var(--bc-transition-fast);
+}
+
+body.template-article .share-button__button:hover {
+  color: var(--bc-or);
+}
+
+/* ---------------------------------------
+   3. SEARCH PAGE (body.template-search)
+   --------------------------------------- */
+body.template-search main {
+  padding: var(--bc-space-8) 0;
+}
+
+body.template-search .search__input.field__input {
+  border: 1px solid var(--bc-border) !important;
+  border-radius: var(--bc-radius-sm) !important;
+  padding: 1rem !important;
+  font-family: var(--bc-font-body) !important;
+  font-size: var(--bc-text-sm) !important;
+}
+
+body.template-search .search__input.field__input:focus {
+  border-color: var(--bc-or) !important;
+}
+
+body.template-search .search__button {
+  background: var(--bc-bleu) !important;
+  color: var(--bc-blanc) !important;
+  font-weight: 500 !important;
+}
+
+body.template-search .title-wrapper {
+  margin-bottom: var(--bc-space-6);
+}
+
+body.template-search .title {
+  font-family: var(--bc-font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+body.template-search .grid__item .card {
+  border: none !important;
+  border-radius: var(--bc-radius-lg) !important;
+  overflow: hidden;
+  transition: all var(--bc-transition-slow);
+}
+
+body.template-search .grid__item .card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--bc-shadow-xl);
+}
+
+body.template-search .card__information {
+  padding: var(--bc-space-4) var(--bc-space-4) var(--bc-space-6) !important;
+}
+
+body.template-search .card__heading {
+  font-family: var(--bc-font-heading) !important;
+  font-weight: 600 !important;
+}
+
+body.template-search .price {
+  font-weight: 600 !important;
+  color: var(--bc-bleu) !important;
+}
+
+/* ---------------------------------------
+   4. 404 PAGE (body.template-404)
+   --------------------------------------- */
+body.template-404 main {
+  text-align: center;
+  padding: var(--bc-space-12) 0 !important;
+}
+
+body.template-404 .title--primary {
+  font-family: var(--bc-font-heading);
+  font-size: 6rem;
+  font-weight: 400;
+  color: var(--bc-bleu);
+  line-height: 1;
+  margin-bottom: var(--bc-space-3);
+}
+
+body.template-404 h1 {
+  font-family: var(--bc-font-heading);
+  font-size: var(--bc-text-xl);
+  font-weight: 500;
+  color: var(--bc-text);
+  margin-bottom: var(--bc-space-3);
+}
+
+body.template-404 p {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-sm);
+  color: var(--bc-text-secondary);
+  margin-bottom: var(--bc-space-6);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.template-404 .button {
+  background: var(--bc-bleu) !important;
+  color: var(--bc-blanc) !important;
+  border-radius: var(--bc-radius-sm) !important;
+  font-weight: 600 !important;
+  padding: 1rem 2.5rem !important;
+}
+
+body.template-404 .button:hover {
+  background: var(--bc-brand-light) !important;
+}
+
+/* ---------------------------------------
+   5. ACCOUNT PAGES (body.template-customers-*)
+   --------------------------------------- */
+.customer {
+  padding: var(--bc-space-8) 0;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.customer h1 {
+  font-family: var(--bc-font-heading);
+  font-size: var(--bc-text-2xl);
+  font-weight: 500;
+  color: var(--bc-text);
+  margin-bottom: var(--bc-space-4);
+  text-align: center;
+}
+
+.customer a {
+  color: var(--bc-bleu);
+  transition: color var(--bc-transition-fast);
+}
+
+.customer a:hover {
+  color: var(--bc-or);
+}
+
+.customer .field input,
+.customer select,
+.customer .field__input {
+  border: 1px solid var(--bc-border) !important;
+  border-radius: var(--bc-radius-md) !important;
+  padding: 1.25rem !important;
+  font-family: var(--bc-font-body) !important;
+  font-size: var(--bc-text-sm) !important;
+  transition: all var(--bc-transition-fast) !important;
+}
+
+.customer .field input:focus,
+.customer .field__input:focus {
+  border-color: var(--bc-or) !important;
+  box-shadow: 0 0 0 3px rgba(196, 182, 151, 0.1) !important;
+}
+
+.customer .field label,
+.customer .form__label {
+  font-family: var(--bc-font-body) !important;
+  font-size: var(--bc-text-sm) !important;
+  font-weight: 500 !important;
+  color: var(--bc-text) !important;
+}
+
+.customer button,
+.customer .button {
+  background: var(--bc-bleu) !important;
+  color: var(--bc-blanc) !important;
+  border-radius: var(--bc-radius-sm) !important;
+  font-family: var(--bc-font-body) !important;
+  font-weight: 500 !important;
+  border: none !important;
+  min-height: 44px !important;
+}
+
+.customer button:hover,
+.customer .button:hover {
+  background: var(--bc-brand-light) !important;
+}
+
+.customer .order-table {
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-radius-lg);
+  overflow: hidden;
+}
+
+.customer .order-table th {
+  font-family: var(--bc-font-body) !important;
+  font-size: var(--bc-text-xs) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--bc-text-secondary) !important;
+  background: var(--bc-bg-alt);
+  padding: var(--bc-space-3) var(--bc-space-4) !important;
+}
+
+.customer .order-table td {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-sm);
+  padding: var(--bc-space-3) var(--bc-space-4) !important;
+  border-bottom: 1px solid var(--bc-border);
+}
+
+.customer .address {
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-radius-lg);
+  padding: var(--bc-space-6);
+  margin-bottom: var(--bc-space-4);
+}
+
+.customer .address h2 {
+  font-family: var(--bc-font-heading);
+  font-size: var(--bc-text-base);
+  font-weight: 600;
+}
+
+/* ---------------------------------------
+   6. GENERIC PAGE (body.template-page)
+   --------------------------------------- */
+body.template-page main {
+  padding: var(--bc-space-8) 0;
+}
+
+body.template-page .page-title {
+  font-family: var(--bc-font-heading);
+  font-size: clamp(var(--bc-text-2xl), 4vw, var(--bc-text-4xl));
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--bc-space-6);
+}
+
+body.template-page .rte {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-base);
+  line-height: 1.8;
+  color: var(--bc-text);
+  max-width: 720px;
+}
+
+body.template-page .rte h2,
+body.template-page .rte h3 {
+  font-family: var(--bc-font-heading);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: var(--bc-space-8);
+}
+
+/* ---------------------------------------
+   7. CONTACT FORM (in page.contact)
+   --------------------------------------- */
+body.template-page .contact-form .field__input,
+body.template-page .contact-form .text-area {
+  border: 1px solid var(--bc-border) !important;
+  border-radius: var(--bc-radius-md) !important;
+  padding: 1.25rem !important;
+  font-family: var(--bc-font-body) !important;
+  font-size: var(--bc-text-sm) !important;
+  transition: all var(--bc-transition-fast) !important;
+}
+
+body.template-page .contact-form .field__input:focus,
+body.template-page .contact-form .text-area:focus {
+  border-color: var(--bc-or) !important;
+  box-shadow: 0 0 0 3px rgba(196, 182, 151, 0.1) !important;
+}
+
+body.template-page .contact-form .field label {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-sm);
+  font-weight: 500;
+  color: var(--bc-text);
+}
+
+body.template-page .contact-form .contact__button {
+  background: var(--bc-bleu) !important;
+  color: var(--bc-blanc) !important;
+  border-radius: var(--bc-radius-sm) !important;
+  font-weight: 600 !important;
+  border: none !important;
+  transition: all var(--bc-transition-base) !important;
+}
+
+body.template-page .contact-form .contact__button:hover {
+  background: var(--bc-brand-light) !important;
+}
+
+/* ---------------------------------------
+   8. COLLECTIONS LIST (body.template-list-collections)
+   --------------------------------------- */
+body.template-list-collections main {
+  padding: var(--bc-space-10) 0;
+}
+
+body.template-list-collections .title {
+  font-family: var(--bc-font-heading);
+  font-size: clamp(var(--bc-text-2xl), 4vw, var(--bc-text-3xl));
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--bc-space-8);
+}
+
+body.template-list-collections .card-collection__title {
+  font-family: var(--bc-font-heading) !important;
+  font-size: var(--bc-text-base) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+}
+
+body.template-list-collections .card-collection__title a {
+  text-decoration: none;
+  transition: color var(--bc-transition-fast);
+}
+
+body.template-list-collections .card-collection__title a:hover {
+  color: var(--bc-or);
+}
+
+body.template-list-collections .card {
+  border-radius: var(--bc-radius-lg) !important;
+  overflow: hidden;
+  transition: all var(--bc-transition-slow);
+  border: 1px solid var(--bc-border) !important;
+}
+
+body.template-list-collections .card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--bc-shadow-lg);
+}
+
+/* ---------------------------------------
+   9. RESPONSIVE
+   --------------------------------------- */
+@media (max-width: 768px) {
+  body.template-404 .title--primary {
+    font-size: 5rem;
+  }
+
+  .customer {
+    padding: var(--bc-space-8) var(--bc-space-4);
+  }
+
+  body.template-blog .blog-articles {
+    gap: var(--bc-space-4);
+  }
+}

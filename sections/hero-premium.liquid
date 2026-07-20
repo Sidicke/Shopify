@@ -1,0 +1,372 @@
+{{- 'premium-hero.css' | asset_url | stylesheet_tag -}}
+
+{%- liquid
+  assign product = section.settings.featured_product
+  assign show_spotlight = section.settings.show_product_spotlight
+  if product != blank
+    assign first_3d_model = product.media | where: 'media_type', 'model' | first
+  endif
+-%}
+
+{%- if first_3d_model -%}
+  {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
+  <link
+    id="ModelViewerStyle"
+    rel="stylesheet"
+    href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
+    media="print"
+    onload="this.media='all'"
+  >
+  <link
+    id="ModelViewerOverride"
+    rel="stylesheet"
+    href="{{ 'component-model-viewer-ui.css' | asset_url }}"
+    media="print"
+    onload="this.media='all'"
+  >
+{%- endif -%}
+
+<div class="hero-premium hero-premium--{{ section.settings.height }} hero-premium--{{ section.settings.content_alignment }}{% if show_spotlight and product != blank %} hero-premium--split{% endif %}"
+     id="HeroPremium-{{ section.id }}"
+     data-parallax="{{ section.settings.enable_parallax }}">
+
+  <!-- Background -->
+  <div class="hero-premium__bg">
+    {%- if section.settings.background_image != blank -%}
+      <div class="hero-premium__image-wrapper">
+        {{ section.settings.background_image | image_url: width: 2400 | image_tag:
+          loading: 'eager',
+          class: 'hero-premium__image',
+          fetchpriority: 'high'
+        }}
+        <div class="hero-premium__image-overlay"></div>
+      </div>
+    {%- else -%}
+      <div class="hero-premium__placeholder">
+        <div class="hero-premium__gradient-base"></div>
+        <div class="hero-premium__gradient-accent"></div>
+        <div class="hero-premium__noise"></div>
+      </div>
+    {%- endif -%}
+    <div class="hero-premium__overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }}"></div>
+  </div>
+
+  <!-- Floating decor elements -->
+  <div class="hero-premium__decor" aria-hidden="true">
+    <div class="hero-premium__decor-circle hero-premium__decor-circle--1"></div>
+    <div class="hero-premium__decor-circle hero-premium__decor-circle--2"></div>
+    <div class="hero-premium__decor-line hero-premium__decor-line--1"></div>
+    <div class="hero-premium__decor-line hero-premium__decor-line--2"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="hero-premium__content bc-container">
+    <div class="hero-premium__split-inner">
+
+      <!-- LEFT: Branding -->
+      <div class="hero-premium__branding">
+
+        <!-- Label -->
+        {%- if section.settings.top_label != blank -%}
+          <div class="hero-premium__label-wrapper hero-anim hero-anim-fade-up" data-delay="0">
+            <span class="hero-premium__label">{{ section.settings.top_label }}</span>
+          </div>
+        {%- endif -%}
+
+        <!-- Heading -->
+        {%- if section.settings.heading != blank -%}
+          <h1 class="hero-premium__heading hero-anim hero-anim-fade-up" data-delay="1">
+            {{ section.settings.heading | escape | newline_to_br }}
+          </h1>
+          <div class="hero-premium__accent-line hero-anim hero-anim-scale-x" data-delay="2"></div>
+        {%- endif -%}
+
+        <!-- Subtext -->
+        {%- if section.settings.subtext != blank -%}
+          <p class="hero-premium__subtext hero-anim hero-anim-fade-up" data-delay="3">{{ section.settings.subtext }}</p>
+        {%- endif -%}
+
+        <!-- Actions -->
+        <div class="hero-premium__actions hero-anim hero-anim-fade-up" data-delay="4">
+          {%- if section.settings.primary_btn_text != blank -%}
+            <a href="{{ section.settings.primary_btn_url | default: '#' }}" class="hero-premium__btn hero-premium__btn--primary">
+              <span class="hero-premium__btn-text">{{ section.settings.primary_btn_text }}</span>
+              <span class="hero-premium__btn-icon">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.33337 8H12.6667M12.6667 8L8.00004 3.33337M12.6667 8L8.00004 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.secondary_btn_text != blank -%}
+            <a href="{{ section.settings.secondary_btn_url | default: '#' }}" class="hero-premium__btn hero-premium__btn--secondary">
+              {{ section.settings.secondary_btn_text }}
+            </a>
+          {%- endif -%}
+        </div>
+
+        <!-- Scroll Indicator -->
+        {%- if section.settings.show_scroll_indicator -%}
+          <div class="hero-premium__scroll hero-anim hero-anim-fade-up" data-delay="5">
+            <span class="hero-premium__scroll-label">{{ section.settings.scroll_label | default: 'Découvrir' }}</span>
+            <div class="hero-premium__scroll-mouse">
+              <div class="hero-premium__scroll-dot"></div>
+            </div>
+          </div>
+        {%- endif -%}
+
+      </div>
+
+      <!-- RIGHT: Product Spotlight -->
+      {%- if show_spotlight and product != blank -%}
+      <div class="hero-premium__spotlight hero-anim hero-anim-fade-right" data-delay="1">
+
+        <div class="hero-premium__spotlight-frame">
+          <!-- 3D Model or Image -->
+          {%- if first_3d_model -%}
+            <div class="hero-premium__model-wrapper">
+              <product-model class="hero-premium__model deferred-media media media--transparent"
+                data-media-id="{{ first_3d_model.id }}">
+                <button id="HeroModelPoster-{{ section.id }}"
+                  class="deferred-media__poster hero-premium__model-poster" type="button">
+                  <span class="deferred-media__poster-button hero-premium__model-play">
+                    <span class="svg-wrapper">{{ 'icon-3d-model' | inline_asset_content }}</span>
+                  </span>
+                  {%- if first_3d_model.preview_image != blank -%}
+                    {{ first_3d_model.preview_image | image_url: width: 800 | image_tag:
+                      loading: 'eager',
+                      class: 'hero-premium__model-preview',
+                      widths: '400, 600, 800'
+                    }}
+                  {%- endif -%}
+                </button>
+                <template>
+                  {{ first_3d_model | media_tag: image_size: '800x', toggleable: true }}
+                </template>
+              </product-model>
+            </div>
+          {%- elsif product.featured_image != blank -%}
+            <div class="hero-premium__product-image-wrapper">
+              {{ product.featured_image | image_url: width: 900 | image_tag:
+                loading: 'eager',
+                class: 'hero-premium__product-image',
+                widths: '400, 600, 800, 900',
+                alt: product.title | escape
+              }}
+              <!-- Floating overlay glow -->
+              <div class="hero-premium__product-glow"></div>
+            </div>
+          {%- endif -%}
+
+          <!-- Product Info Overlay -->
+          <div class="hero-premium__product-info">
+            <h3 class="hero-premium__product-title">{{ product.title | escape }}</h3>
+            {%- if product.description != blank -%}
+              <p class="hero-premium__product-desc">{{ product.description | strip_html | truncatewords: 20 }}</p>
+            {%- endif -%}
+            <div class="hero-premium__product-meta">
+              <span class="hero-premium__product-price">
+                {{ product.price | money_without_trailing_zeros }}
+              </span>
+              {%- if product.compare_at_price > product.price -%}
+                <span class="hero-premium__product-compare">
+                  {{ product.compare_at_price | money_without_trailing_zeros }}
+                </span>
+              {%- endif -%}
+              <a href="{{ product.url }}" class="hero-premium__product-link">
+                Voir le produit
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                  <path d="M3.33337 8H12.6667M12.6667 8L8.00004 3.33337M12.6667 8L8.00004 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ambient floating particles -->
+        <div class="hero-premium__spotlight-particles" aria-hidden="true">
+          <div class="bc-particle bc-particle--1"></div>
+          <div class="bc-particle bc-particle--2"></div>
+          <div class="bc-particle bc-particle--3"></div>
+          <div class="bc-particle bc-particle--4"></div>
+        </div>
+      </div>
+      {%- elsif show_spotlight and product == blank -%}
+      <!-- Placeholder -->
+      <div class="hero-premium__spotlight hero-anim hero-anim-fade-right" data-delay="1">
+        <div class="hero-premium__spotlight-frame hero-premium__spotlight--placeholder">
+          <div class="hero-premium__placeholder-product">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 3v18"/>
+            </svg>
+            <p>Produit en vedette</p>
+            <span>Sélectionnez un produit dans les paramètres</span>
+          </div>
+        </div>
+      </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</div>
+
+{%- if first_3d_model -%}
+  <script src="{{ 'product-model.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Hero Premium",
+  "tag": "section",
+  "class": "section section-hero-premium",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Image de fond",
+      "info": "Recommandé : 2400px de large, format paysage haute résolution."
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité de l'overlay",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_parallax",
+      "label": "Activer l'effet parallaxe",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Hauteur",
+      "options": [
+        { "value": "small", "label": "Petite" },
+        { "value": "medium", "label": "Moyenne" },
+        { "value": "large", "label": "Grande" },
+        { "value": "fullscreen", "label": "Plein écran" }
+      ],
+      "default": "fullscreen"
+    },
+    {
+      "type": "header",
+      "content": "Contenu branding"
+    },
+    {
+      "type": "text",
+      "id": "top_label",
+      "label": "Label supérieur",
+      "default": "BAO CONSILIUM"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Titre principal",
+      "default": "L'Import-Export\nAugmenté.",
+      "info": "Utilisez un retour à la ligne pour séparer les lignes."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sous-titre",
+      "default": "Nous transformons l'import-export traditionnel en un écosystème digital puissant. Sourcing international, vente Shopify, sans limites géographiques."
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Alignement du contenu",
+      "options": [
+        { "value": "left", "label": "Gauche" },
+        { "value": "center", "label": "Centré" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Boutons"
+    },
+    {
+      "type": "text",
+      "id": "primary_btn_text",
+      "label": "Texte bouton principal",
+      "default": "Explorer notre catalogue"
+    },
+    {
+      "type": "url",
+      "id": "primary_btn_url",
+      "label": "Lien bouton principal"
+    },
+    {
+      "type": "text",
+      "id": "secondary_btn_text",
+      "label": "Texte bouton secondaire",
+      "default": "En savoir plus"
+    },
+    {
+      "type": "url",
+      "id": "secondary_btn_url",
+      "label": "Lien bouton secondaire"
+    },
+    {
+      "type": "header",
+      "content": "Produit en vedette"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_spotlight",
+      "label": "Afficher le produit en vedette",
+      "default": true
+    },
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Produit à mettre en avant"
+    },
+    {
+      "type": "header",
+      "content": "Indicateur de scroll"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scroll_indicator",
+      "label": "Afficher l'indicateur de scroll",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "scroll_label",
+      "label": "Texte du scroll",
+      "default": "Découvrir"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Premium",
+      "settings": {
+        "height": "fullscreen",
+        "content_alignment": "left",
+        "top_label": "BAO CONSILIUM",
+        "heading": "L'Import-Export\nAugmenté.",
+        "subtext": "Nous transformons l'import-export traditionnel en un écosystème digital puissant. Sourcing international, vente Shopify, sans limites géographiques.",
+        "primary_btn_text": "Explorer notre catalogue",
+        "secondary_btn_text": "En savoir plus",
+        "show_product_spotlight": true,
+        "show_scroll_indicator": true,
+        "scroll_label": "Découvrir"
+      }
+    }
+  ]
+}
+{% endschema %}

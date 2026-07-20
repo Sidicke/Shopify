@@ -1,0 +1,190 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero-premium": {
+      "type": "hero-premium",
+      "settings": {
+        "height": "fullscreen",
+        "content_alignment": "left",
+        "top_label": "BAO CONSILIUM",
+        "heading": "L'Import-Export\nAugmenté.",
+        "subtext": "Nous transformons l'import-export traditionnel en un écosystème digital puissant. Sourcing international, vente Shopify, sans limites géographiques.",
+        "primary_btn_text": "Explorer notre catalogue",
+        "primary_btn_url": "shopify://collections/all",
+        "secondary_btn_text": "En savoir plus",
+        "show_product_spotlight": true,
+        "show_scroll_indicator": true,
+        "scroll_label": "Découvrir"
+      }
+    },
+    "trust_bar": {
+      "type": "trust-bar",
+      "blocks": {
+        "trust-0": {
+          "type": "item",
+          "settings": {
+            "icon": "globe",
+            "title": "Sourcing International",
+            "text": "Nous sourçons les meilleurs produits aux quatre coins du monde pour vous offrir un catalogue exceptionnel."
+          }
+        },
+        "trust-1": {
+          "type": "item",
+          "settings": {
+            "icon": "robot",
+            "title": "Propulsé par l'IA",
+            "text": "Notre écosystème digital utilise l'intelligence artificielle pour optimiser chaque étape de votre expérience d'achat."
+          }
+        },
+        "trust-2": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "title": "Transactions Sécurisées",
+            "text": "Paiements 100% sécurisés via Shopify. Votre confiance est notre priorité absolue."
+          }
+        },
+        "trust-3": {
+          "type": "item",
+          "settings": {
+            "icon": "trending",
+            "title": "Commerce Sans Limites",
+            "text": "Depuis l'Afrique de l'Ouest vers le monde. Nous repoussons les frontières du commerce traditionnel."
+          }
+        }
+      },
+      "block_order": ["trust-0", "trust-1", "trust-2", "trust-3"],
+      "settings": {}
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Produits en vedette",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "stats": {
+      "type": "stats",
+      "blocks": {
+        "stat-0": {
+          "type": "stat",
+          "settings": {
+            "number": "50+",
+            "text": "Pays partenaires"
+          }
+        },
+        "stat-1": {
+          "type": "stat",
+          "settings": {
+            "number": "200+",
+            "text": "Produits sourcés"
+          }
+        },
+        "stat-2": {
+          "type": "stat",
+          "settings": {
+            "number": "98%",
+            "text": "Clients satisfaits"
+          }
+        },
+        "stat-3": {
+          "type": "stat",
+          "settings": {
+            "number": "24/7",
+            "text": "Support disponible"
+          }
+        }
+      },
+      "block_order": ["stat-0", "stat-1", "stat-2", "stat-3"],
+      "settings": {
+        "label": "BAO CONSILIUM EN CHIFFRES",
+        "title": "La puissance du commerce augmenté"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial-0": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "BAO CONSILIUM a transformé notre façon d'importer. Leur approche digitale nous a ouvert des marchés que nous n'aurions jamais imaginés.",
+            "name": "Jean Dupont",
+            "role": "Importateur, Cotonou"
+          }
+        },
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Leur plateforme est incroyablement fluide. Enfin un partenaire qui comprend les vrais besoins des commerçants africains.",
+            "name": "Amara Koné",
+            "role": "Distributeur, Abidjan"
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 4,
+            "quote": "Grâce à BAO CONSILIUM, nous avons réduit nos délais d'approvisionnement de 40%. Un vrai game-changer pour notre business.",
+            "name": "Fatima Diallo",
+            "role": "CEO, Dakar"
+          }
+        }
+      },
+      "block_order": ["testimonial-0", "testimonial-1", "testimonial-2"],
+      "settings": {
+        "label": "ILS NOUS FONT CONFIANCE",
+        "title": "Ce que disent nos partenaires"
+      }
+    },
+    "cta-banner": {
+      "type": "cta-banner",
+      "settings": {
+        "title": "Prêt à passer à l'étape supérieure ?",
+        "text": "Rejoignez les commerçants et importateurs qui ont choisi BAO CONSILIUM pour développer leur activité sans limites.",
+        "btn_primary_text": "Commencer maintenant",
+        "btn_primary_url": "shopify://collections/all",
+        "btn_secondary_text": "Nous contacter",
+        "btn_secondary_url": "/pages/contact"
+      }
+    }
+  },
+  "order": [
+    "hero-premium",
+    "trust_bar",
+    "featured_collection",
+    "stats",
+    "testimonials",
+    "cta-banner"
+  ]
+}

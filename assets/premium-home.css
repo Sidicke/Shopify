@@ -1,0 +1,378 @@
+/* ============================================================
+   HOME PAGE PREMIUM — Bao Consilium
+   Styles de toutes les sections de la page d'accueil
+   ============================================================ */
+
+/* ---------------------------------------
+   1. TRUST BAR — Valeurs & confiance
+   --------------------------------------- */
+.trust-bar {
+  padding: var(--bc-space-12) 0;
+  background-color: var(--bc-bg-alt);
+}
+
+.trust-bar__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bc-space-4);
+}
+
+@media (min-width: 768px) {
+  .trust-bar__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.trust-bar__item {
+  text-align: center;
+  padding: var(--bc-space-5) var(--bc-space-4);
+  background: var(--bc-blanc);
+  border-radius: var(--bc-radius-md);
+  border: 1px solid var(--bc-border);
+  transition: all var(--bc-transition-base);
+}
+
+.trust-bar__item:hover {
+  border-color: var(--bc-or);
+  box-shadow: var(--bc-shadow-sm);
+}
+
+.trust-bar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto var(--bc-space-3);
+  color: var(--bc-or);
+}
+
+.trust-bar__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.trust-bar__title {
+  font-family: var(--bc-font-heading);
+  font-size: var(--bc-text-sm);
+  font-weight: 500;
+  color: var(--bc-text);
+  margin: 0 0 var(--bc-space-1);
+}
+
+.trust-bar__text {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-xs);
+  color: var(--bc-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 24ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------------------------------------
+   2. FEATURED COLLECTION — Override Dawn
+   ---------------------------------------
+   On cible les classes réelles de Dawn
+   --------------------------------------- */
+.section.section-featured-collection {
+  padding: var(--bc-space-12) 0;
+}
+
+.section-featured-collection .page-width {
+  max-width: 1000px;
+}
+
+.section-featured-collection .title-wrapper-with-link {
+  margin-bottom: var(--bc-space-6);
+}
+
+.section-featured-collection .title {
+  font-family: var(--bc-font-heading) !important;
+  font-size: clamp(var(--bc-text-2xl), 3vw, var(--bc-text-3xl)) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.section-featured-collection .title a,
+.section-featured-collection .link-with-icon {
+  font-family: var(--bc-font-body) !important;
+  font-size: var(--bc-text-xs) !important;
+  font-weight: 500 !important;
+  color: var(--bc-bleu) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  text-decoration: none !important;
+}
+
+/* Les styles de cards sont centralises dans premium-collection.css */
+
+/* ---------------------------------------
+   3. STATS / ABOUT SECTION
+   --------------------------------------- */
+.stats-section {
+  padding: var(--bc-space-12) 0;
+  background-color: var(--bc-bleu);
+  color: var(--bc-blanc);
+}
+
+.stats-section__header {
+  text-align: center;
+  margin-bottom: var(--bc-space-8);
+}
+
+.stats-section__label {
+  display: inline-block;
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bc-or);
+  margin-bottom: var(--bc-space-3);
+  padding: var(--bc-space-1) var(--bc-space-3);
+  border: 1px solid rgba(196, 182, 151, 0.2);
+  border-radius: var(--bc-radius-full);
+}
+
+.stats-section__title {
+  font-family: var(--bc-font-heading);
+  font-size: clamp(var(--bc-text-2xl), 3vw, var(--bc-text-3xl));
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--bc-blanc);
+  margin: 0;
+}
+
+.stats-section__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--bc-space-4);
+}
+
+@media (max-width: 767px) {
+  .stats-section__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stats-section__item {
+  text-align: center;
+  padding: var(--bc-space-4);
+}
+
+.stats-section__number {
+  font-family: var(--bc-font-heading);
+  font-size: clamp(var(--bc-text-3xl), 4vw, var(--bc-text-4xl));
+  font-weight: 400;
+  color: var(--bc-or);
+  line-height: 1.1;
+  margin-bottom: var(--bc-space-1);
+}
+
+.stats-section__label-item {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-xs);
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+/* ---------------------------------------
+   4. TESTIMONIALS
+   --------------------------------------- */
+.testimonials {
+  padding: var(--bc-space-12) 0;
+}
+
+.testimonials__header {
+  text-align: center;
+  margin-bottom: var(--bc-space-8);
+}
+
+.testimonials__label {
+  display: inline-block;
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bc-or);
+  margin-bottom: var(--bc-space-3);
+  padding: var(--bc-space-1) var(--bc-space-3);
+  border: 1px solid rgba(196, 182, 151, 0.2);
+  border-radius: var(--bc-radius-full);
+}
+
+.testimonials__title {
+  font-family: var(--bc-font-heading);
+  font-size: clamp(var(--bc-text-2xl), 3vw, var(--bc-text-3xl));
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--bc-text);
+  margin: 0;
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bc-space-4);
+}
+
+@media (min-width: 768px) {
+  .testimonials__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.testimonials__card {
+  background: var(--bc-blanc);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-radius-md);
+  padding: var(--bc-space-6);
+  transition: all var(--bc-transition-base);
+}
+
+.testimonials__card:hover {
+  border-color: var(--bc-or);
+  box-shadow: var(--bc-shadow-sm);
+}
+
+.testimonials__stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: var(--bc-space-3);
+  color: var(--bc-or);
+}
+
+.testimonials__stars svg { width: 14px; height: 14px; }
+
+.testimonials__quote {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-sm);
+  line-height: 1.6;
+  color: var(--bc-text-secondary);
+  margin: 0 0 var(--bc-space-4);
+  font-style: italic;
+}
+
+.testimonials__author {
+  display: flex;
+  align-items: center;
+  gap: var(--bc-space-3);
+}
+
+.testimonials__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--bc-radius-full);
+  background: var(--bc-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bc-text-secondary);
+  font-family: var(--bc-font-heading);
+  font-weight: 500;
+  font-size: var(--bc-text-xs);
+  overflow: hidden;
+}
+
+.testimonials__name {
+  font-family: var(--bc-font-heading);
+  font-size: var(--bc-text-xs);
+  font-weight: 500;
+  color: var(--bc-text);
+  margin: 0;
+}
+
+.testimonials__role {
+  font-family: var(--bc-font-body);
+  font-size: 0.625rem;
+  color: var(--bc-text-secondary);
+  margin: 0;
+}
+
+/* ---------------------------------------
+   5. CTA BANNER
+   --------------------------------------- */
+.cta-banner {
+  padding: var(--bc-space-12) 0;
+  background-color: var(--bc-bleu);
+  color: var(--bc-blanc);
+  text-align: center;
+}
+
+.cta-banner__inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-banner__title {
+  font-family: var(--bc-font-heading);
+  font-size: clamp(var(--bc-text-2xl), 4vw, var(--bc-text-3xl));
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--bc-blanc);
+  margin: 0 0 var(--bc-space-3);
+}
+
+.cta-banner__text {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-base);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 var(--bc-space-6);
+}
+
+.cta-banner__actions {
+  display: flex;
+  gap: var(--bc-space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------------------------------------
+   6. NEWSLETTER — Override Dawn
+   --------------------------------------- */
+.newsletter-bc {
+  padding: var(--bc-space-12) 0;
+  background-color: var(--bc-bg-alt);
+}
+
+.newsletter-bc .newsletter-form__field-wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.newsletter-bc .field__input {
+  border: 1px solid var(--bc-border) !important;
+  border-radius: var(--bc-radius-sm) !important;
+  padding: 0.875rem !important;
+  font-family: var(--bc-font-body) !important;
+  font-size: var(--bc-text-sm) !important;
+  background: var(--bc-blanc) !important;
+}
+
+.newsletter-bc .field__input:focus {
+  border-color: var(--bc-or) !important;
+}
+
+.newsletter-bc .newsletter-form__button {
+  background-color: var(--bc-bleu) !important;
+  color: var(--bc-blanc) !important;
+  border-radius: var(--bc-radius-sm) !important;
+  font-family: var(--bc-font-body) !important;
+  font-weight: 500 !important;
+}
+
+.newsletter-bc .newsletter-form__button:hover {
+  background-color: var(--bc-brand-light) !important;
+}
+
+/* ---------------------------------------
+   7. RESPONSIVE — Home spécifique
+   --------------------------------------- */
+@media (max-width: 768px) {
+  .trust-bar { padding: var(--bc-space-8) 0; }
+  .stats-section { padding: var(--bc-space-8) 0; }
+  .testimonials { padding: var(--bc-space-8) 0; }
+  .cta-banner { padding: var(--bc-space-8) 0; }
+}

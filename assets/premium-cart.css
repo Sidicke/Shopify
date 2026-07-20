@@ -1,0 +1,549 @@
+/* ============================================================
+   PANIER PREMIUM — Bao Consilium
+   Page panier + Drawer + Barre progression livraison
+   ============================================================ */
+
+/* ---------------------------------------
+   1. CART DRAWER — Premium overlay
+   --------------------------------------- */
+   .cart-drawer__overlay {
+    background: rgba(4, 4, 4, 0.4) !important;
+  }
+  
+  .drawer {
+    z-index: var(--bc-z-modal);
+  }
+  
+  .drawer__inner {
+    border-left: 1px solid var(--bc-border) !important;
+    box-shadow: var(--bc-shadow-xl) !important;
+  }
+  
+  /* Drawer header */
+  .drawer__header {
+    padding: var(--bc-space-4) var(--bc-space-5) var(--bc-space-3) !important;
+    border-bottom: 1px solid var(--bc-border);
+  }
+  
+  .drawer__heading {
+    font-family: var(--bc-font-heading) !important;
+    font-size: var(--bc-text-lg) !important;
+    font-weight: 500 !important;
+    color: var(--bc-text) !important;
+    margin: 0 !important;
+  }
+  
+  .drawer__close {
+    width: 36px;
+    height: 36px;
+    border: none !important;
+    background: none !important;
+    cursor: pointer;
+    border-radius: var(--bc-radius-full);
+    transition: all var(--bc-transition-fast);
+    color: var(--bc-text-secondary);
+  }
+  
+  .drawer__close:hover {
+    background: rgba(7, 15, 26, 0.05) !important;
+    color: var(--bc-or);
+  }
+  
+  .drawer__close .svg-wrapper {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* ---------------------------------------
+     2. DRAWER CART ITEMS
+     --------------------------------------- */
+  #CartDrawer-CartItems {
+    padding: 0 var(--bc-space-6);
+  }
+  
+  .cart-items thead {
+    display: none;
+  }
+  
+  .cart-item {
+    padding: var(--bc-space-4) 0;
+    border-bottom: 1px solid var(--bc-border);
+  }
+  
+  .cart-item:last-child {
+    border-bottom: none;
+  }
+  
+  .cart-item__media {
+    width: 80px;
+    border-radius: var(--bc-radius-md);
+    overflow: hidden;
+  }
+  
+  .cart-item__image-container {
+    border-radius: var(--bc-radius-md) !important;
+    overflow: hidden;
+    border: none !important;
+  }
+  
+  .cart-item__image {
+    border-radius: 0 !important;
+  }
+  
+  .cart-item__details {
+    padding-left: var(--bc-space-4);
+  }
+  
+  .cart-item__name {
+    font-family: var(--bc-font-heading) !important;
+    font-size: var(--bc-text-sm) !important;
+    font-weight: 600 !important;
+    color: var(--bc-text) !important;
+    text-decoration: none !important;
+    letter-spacing: -0.01em;
+    transition: color var(--bc-transition-fast);
+  }
+  
+  .cart-item__name:hover {
+    color: var(--bc-or);
+  }
+  
+  .product-option {
+    font-family: var(--bc-font-body) !important;
+    font-size: var(--bc-text-xs) !important;
+    color: var(--bc-text-secondary) !important;
+  }
+  
+  .cart-item__old-price {
+    color: var(--bc-text-secondary) !important;
+  }
+  
+  .cart-item__final-price {
+    color: var(--bc-bleu) !important;
+    font-weight: 600 !important;
+  }
+  
+  .cart-item__price-wrapper .price--end {
+    color: var(--bc-bleu) !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Quantity */
+  .cart-item__quantity .quantity {
+    border: 1px solid var(--bc-border) !important;
+    border-radius: var(--bc-radius-md) !important;
+    min-height: 32px !important;
+    overflow: hidden;
+  }
+  
+  .cart-item__quantity .quantity__button {
+    color: var(--bc-text-secondary) !important;
+    transition: color var(--bc-transition-fast);
+  }
+  
+  .cart-item__quantity .quantity__button:hover {
+    color: var(--bc-or) !important;
+  }
+  
+  .cart-item__quantity .quantity__input {
+    font-family: var(--bc-font-body) !important;
+    font-size: var(--bc-text-sm) !important;
+    font-weight: 600 !important;
+    color: var(--bc-text) !important;
+    border: none !important;
+    border-left: 1px solid var(--bc-border) !important;
+    border-right: 1px solid var(--bc-border) !important;
+    padding: 0 !important;
+  }
+  
+  /* Remove button */
+  .cart-remove-button .button--tertiary {
+    color: var(--bc-text-secondary) !important;
+    min-width: auto !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+  
+  .cart-remove-button .button--tertiary:hover {
+    color: var(--bc-error) !important;
+  }
+  
+  .cart-remove-button .svg-wrapper {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Discounts */
+  .discounts__discount {
+    font-family: var(--bc-font-body);
+    font-size: var(--bc-text-xs);
+    color: var(--bc-sale);
+  }
+  
+  .discounts__discount .svg-wrapper {
+    width: 12px;
+    height: 12px;
+    color: var(--bc-sale);
+  }
+  
+  /* ---------------------------------------
+     3. DRAWER FOOTER — Totals & Checkout
+     --------------------------------------- */
+  .drawer__footer {
+    border-top: 1px solid var(--bc-border);
+    padding: var(--bc-space-4) !important;
+    background: var(--bc-bg-alt);
+  }
+  
+  .cart-drawer__footer .totals {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--bc-space-4) 0;
+    border-bottom: 1px solid var(--bc-border);
+    margin-bottom: var(--bc-space-4);
+  }
+  
+  .totals__total {
+    font-family: var(--bc-font-heading) !important;
+    font-size: var(--bc-text-base) !important;
+    font-weight: 500 !important;
+    color: var(--bc-text) !important;
+    margin: 0 !important;
+  }
+  
+  .totals__total-value {
+    font-family: var(--bc-font-heading) !important;
+    font-size: var(--bc-text-base) !important;
+    font-weight: 500 !important;
+    color: var(--bc-bleu) !important;
+    margin: 0 !important;
+  }
+  
+  .tax-note {
+    font-family: var(--bc-font-body);
+    font-size: var(--bc-text-xs);
+    color: var(--bc-text-secondary);
+    display: block;
+    margin-bottom: var(--bc-space-4);
+    text-align: center;
+  }
+  
+  /* Checkout button */
+  .cart__checkout-button {
+    background: var(--bc-bleu) !important;
+    color: var(--bc-blanc) !important;
+    font-family: var(--bc-font-body) !important;
+    font-size: var(--bc-text-sm) !important;
+    font-weight: 500 !important;
+    border-radius: var(--bc-radius-sm) !important;
+    min-height: 48px !important;
+    width: 100% !important;
+    border: none !important;
+  }
+  
+  .cart__checkout-button:hover {
+    background: var(--bc-brand-light) !important;
+  }
+  
+  .cart__checkout-button:disabled {
+    opacity: 0.5 !important;
+    transform: none !important;
+  }
+  
+  /* Additional checkout buttons */
+  .cart__dynamic-checkout-buttons {
+    margin-top: var(--bc-space-3);
+  }
+  
+  /* Cart note */
+  .cart__note.field {
+    margin-bottom: var(--bc-space-4);
+  }
+  
+  .cart__note .field__input {
+    border: 1px solid var(--bc-border) !important;
+    border-radius: var(--bc-radius-md) !important;
+    font-family: var(--bc-font-body);
+    font-size: var(--bc-text-sm);
+    transition: border-color var(--bc-transition-fast);
+  }
+  
+  .cart__note .field__input:focus {
+    border-color: var(--bc-or) !important;
+    box-shadow: 0 0 0 3px rgba(196, 182, 151, 0.1) !important;
+  }
+  
+  /* ---------------------------------------
+     4. SHIPPING PROGRESS BAR — Premium
+     --------------------------------------- */
+  .bc-shipping-bar {
+    padding: var(--bc-space-4) var(--bc-space-5);
+    margin-bottom: var(--bc-space-3);
+    background: linear-gradient(135deg, rgba(196, 182, 151, 0.04), rgba(196, 182, 151, 0.02));
+    border: 1px solid rgba(196, 182, 151, 0.12);
+    border-radius: var(--bc-radius-lg);
+    transition: all var(--bc-transition-slow);
+  }
+  
+  .bc-shipping-bar.is-complete {
+    background: linear-gradient(135deg, rgba(196, 182, 151, 0.08), rgba(196, 182, 151, 0.04));
+    border-color: rgba(196, 182, 151, 0.25);
+  }
+  
+  .bc-shipping-bar__content {
+    display: flex;
+    align-items: center;
+    gap: var(--bc-space-3);
+    margin-bottom: var(--bc-space-3);
+  }
+  
+  .bc-shipping-bar__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    color: var(--bc-or);
+    background: rgba(196, 182, 151, 0.08);
+    border-radius: var(--bc-radius-full);
+  }
+  
+  .bc-shipping-bar__icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bc-shipping-bar__text {
+    font-family: var(--bc-font-body);
+    font-size: var(--bc-text-xs);
+    color: var(--bc-text-secondary);
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  .bc-shipping-bar__text strong {
+    color: var(--bc-or);
+    font-weight: 600;
+  }
+  
+  .bc-shipping-bar__track {
+    width: 100%;
+    height: 4px;
+    background: var(--bc-border);
+    border-radius: var(--bc-radius-full);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .bc-shipping-bar__fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--bc-or), #d4c5a8, var(--bc-or));
+    background-size: 200% 100%;
+    border-radius: var(--bc-radius-full);
+    transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+  }
+  
+  /* Animated shimmer on fill */
+  .bc-shipping-bar__fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background-size: 200% 100%;
+    animation: shippingShimmer 2s ease-in-out infinite;
+    border-radius: var(--bc-radius-full);
+  }
+  
+  @keyframes shippingShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Complete state */
+  .bc-shipping-bar.is-complete .bc-shipping-bar__fill {
+    background: linear-gradient(to right, var(--bc-or), #d4c5a8);
+  }
+  
+  .bc-shipping-bar.is-complete .bc-shipping-bar__fill::after {
+    animation: shimmerComplete 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes shimmerComplete {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+  }
+  
+  .bc-shipping-bar.is-complete .bc-shipping-bar__icon {
+    background: rgba(196, 182, 151, 0.15);
+  }
+
+  /* Full cart page — wider bar */
+  .bc-shipping-bar--page {
+    padding: var(--bc-space-5) var(--bc-space-6);
+    margin-bottom: var(--bc-space-5);
+  }
+  
+  .bc-shipping-bar--page .bc-shipping-bar__icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .bc-shipping-bar--page .bc-shipping-bar__icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .bc-shipping-bar--page .bc-shipping-bar__text {
+    font-size: var(--bc-text-sm);
+  }
+  
+  .bc-shipping-bar--page .bc-shipping-bar__track {
+    height: 5px;
+  }
+  
+  /* ---------------------------------------
+     5. CART PAGE — Full page
+     --------------------------------------- */
+  cart-items {
+    display: block;
+  }
+  
+  .title-wrapper-with-link {
+    margin-bottom: var(--bc-space-8) !important;
+  }
+  
+  .title-wrapper-with-link .title {
+    font-family: var(--bc-font-heading) !important;
+    font-size: var(--bc-text-2xl) !important;
+    font-weight: 500 !important;
+  }
+  
+  .title-wrapper-with-link .underlined-link {
+    font-family: var(--bc-font-body);
+    font-size: var(--bc-text-sm);
+    font-weight: 500;
+    color: var(--bc-bleu) !important;
+    text-underline-offset: 0.3rem;
+    transition: color var(--bc-transition-fast);
+  }
+  
+  .title-wrapper-with-link .underlined-link:hover {
+    color: var(--bc-or) !important;
+  }
+  
+  /* Cart page table */
+  .cart-items thead th {
+    font-family: var(--bc-font-body) !important;
+    font-size: var(--bc-text-xs) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: var(--bc-text-secondary) !important;
+    padding-bottom: var(--bc-space-4) !important;
+    border-bottom: 1px solid var(--bc-border);
+  }
+  
+  /* Cart page footer */
+  .cart__footer {
+    border-top: 1px solid var(--bc-border);
+    padding-top: var(--bc-space-8) !important;
+  }
+  
+  .cart__ctas .cart__checkout-button {
+    width: auto !important;
+    min-width: 280px;
+  }
+  
+  .cart__ctas {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* ---------------------------------------
+     6. EMPTY CART
+     --------------------------------------- */
+  .cart__warnings {
+    text-align: center;
+    padding: var(--bc-space-12) 0;
+  }
+  
+  .cart__empty-text {
+    font-family: var(--bc-font-heading);
+    font-size: var(--bc-text-xl);
+    font-weight: 500;
+    color: var(--bc-text);
+    margin-bottom: var(--bc-space-4);
+  }
+  
+  .cart__warnings .button {
+    background: var(--bc-bleu) !important;
+    color: var(--bc-blanc) !important;
+    border-radius: var(--bc-radius-sm) !important;
+    font-weight: 600 !important;
+    padding: 1rem 2.5rem !important;
+  }
+  
+  .cart__warnings .button:hover {
+    background: var(--bc-brand-light) !important;
+  }
+  
+  .cart__login-title {
+    font-family: var(--bc-font-heading);
+    font-size: var(--bc-text-base);
+    font-weight: 600;
+    margin-top: var(--bc-space-8);
+  }
+  
+  .cart__login-paragraph {
+    font-family: var(--bc-font-body);
+    font-size: var(--bc-text-sm);
+  }
+  
+  /* ---------------------------------------
+     7. RESPONSIVE
+     --------------------------------------- */
+  @media (max-width: 768px) {
+    .drawer__header {
+      padding: var(--bc-space-4) var(--bc-space-4) var(--bc-space-3) !important;
+    }
+  
+    .cart-drawer__items {
+      padding: 0 var(--bc-space-4);
+    }
+  
+    .drawer__footer {
+      padding: var(--bc-space-4) !important;
+    }
+  
+    .cart-item__media {
+      width: 64px;
+    }
+  
+    .title-wrapper-with-link .title {
+      font-size: var(--bc-text-2xl) !important;
+    }
+  }
+  
+  /* ---------------------------------------
+     8. REDUCED MOTION
+     --------------------------------------- */
+  @media (prefers-reduced-motion: reduce) {
+    .cart__checkout-button,
+    .cart-item__name,
+    .drawer__close {
+      transition: none !important;
+    }
+  
+    .bc-shipping-bar__fill {
+      transition: none;
+    }
+  }

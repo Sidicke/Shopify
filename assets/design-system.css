@@ -1,0 +1,578 @@
+/* ============================================================
+   BAO CONSILIUM — DESIGN SYSTEM SIGNATURE
+   Design Tokens & Variables
+   ============================================================
+   Brand: Bao Consilium
+   Positionnement: Import-Export augmenté, B2B premium
+   Ambiance: Raffiné · Épuré · Haut de gamme
+   ============================================================ */
+
+/* ---------------------------------------
+   2. DESIGN TOKENS — Variables globales
+   --------------------------------------- */
+:root {
+  /* ---- Override Dawn fonts ---- */
+  --font-heading-family: 'Cormorant Garamond', serif;
+  --font-body-family: 'Inter', 'Assistant', sans-serif;
+
+  /* ---- Couleurs brutes ---- */
+  --bc-bleu: #070f1a;
+  --bc-bleu-rgb: 7, 15, 26;
+  --bc-or: #c4b697;
+  --bc-or-rgb: 196, 182, 151;
+  --bc-blanc: #ffffff;
+  --bc-blanc-rgb: 255, 255, 255;
+  --bc-noir: #040404;
+  --bc-noir-rgb: 4, 4, 4;
+  --bc-warm-white: #f8f7f4;
+  --bc-warm-white-rgb: 248, 247, 244;
+  --bc-warm-gray: #e5e0d8;
+  --bc-warm-gray-rgb: 229, 224, 216;
+  --bc-gray: #7a7a7a;
+  --bc-gray-rgb: 122, 122, 122;
+
+  /* ---- Couleurs fonctionnelles ---- */
+  --bc-brand: var(--bc-bleu);
+  --bc-brand-light: #0c1f33;
+  --bc-accent: var(--bc-or);
+  --bc-accent-hover: #b3a588;
+  --bc-bg: var(--bc-blanc);
+  --bc-bg-alt: var(--bc-warm-white);
+  --bc-bg-dark: var(--bc-bleu);
+  --bc-text: #1a1a1a;
+  --bc-text-secondary: #6b6b6b;
+  --bc-text-on-dark: rgba(255,255,255,0.92);
+  --bc-text-accent: var(--bc-or);
+  --bc-border: #e8e4de;
+  --bc-success: var(--bc-or);
+  --bc-error: #c44545;
+  --bc-sale: #c44545;
+
+  /* ----- Typographie ----- */
+  --bc-font-heading: 'Cormorant Garamond', serif;
+  --bc-font-body: 'Inter', 'Assistant', sans-serif;
+
+  /* ----- Tailles (upgradées pour plus d'impact) ----- */
+  --bc-text-xs: 0.8125rem;   /* 13px */
+  --bc-text-sm: 0.9375rem;   /* 15px */
+  --bc-text-base: 1.0625rem; /* 17px */
+  --bc-text-lg: 1.25rem;     /* 20px */
+  --bc-text-xl: 1.5rem;      /* 24px */
+  --bc-text-2xl: 1.75rem;    /* 28px */
+  --bc-text-3xl: 2.25rem;    /* 36px */
+  --bc-text-4xl: 2.75rem;    /* 44px */
+  --bc-text-5xl: 3.5rem;     /* 56px */
+  --bc-text-6xl: 4.5rem;     /* 72px */
+
+  /* ----- Spacing (reduit) ----- */
+  --bc-space-1: 0.25rem;
+  --bc-space-2: 0.5rem;
+  --bc-space-3: 0.75rem;
+  --bc-space-4: 1rem;
+  --bc-space-5: 1.25rem;
+  --bc-space-6: 1.5rem;
+  --bc-space-8: 2rem;
+  --bc-space-10: 2.5rem;
+  --bc-space-12: 3rem;
+  --bc-space-16: 4rem;
+  --bc-space-20: 5rem;
+  --bc-space-24: 6rem;
+
+  /* ----- Border Radius ----- */
+  --bc-radius-none: 0;
+  --bc-radius-sm: 0.125rem;
+  --bc-radius-md: 0.25rem;
+  --bc-radius-lg: 0.375rem;
+  --bc-radius-xl: 0.5rem;
+  --bc-radius-2xl: 0.75rem;
+  --bc-radius-full: 9999px;
+
+  /* ----- Shadows ----- */
+  --bc-shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --bc-shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --bc-shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+  --bc-shadow-xl: 0 16px 40px rgba(0,0,0,0.1);
+  --bc-shadow-gold: 0 4px 16px rgba(196,182,151,0.2);
+
+  /* ----- Transitions ----- */
+  --bc-transition-fast: 150ms ease;
+  --bc-transition-base: 250ms ease;
+  --bc-transition-slow: 400ms ease;
+
+  /* ----- Z-index ----- */
+  --bc-z-header: 100;
+  --bc-z-overlay: 200;
+  --bc-z-modal: 300;
+  --bc-z-toast: 400;
+
+  /* ----- Layout ----- */
+  --bc-container: min(100% - 2rem, 1200px);
+  --bc-container-narrow: min(100% - 2rem, 800px);
+  --bc-header-height: 72px;
+  --bc-header-height-scrolled: 56px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --bc-container: min(100% - 6rem, 1280px);
+    --bc-container-narrow: min(100% - 6rem, 896px);
+    --bc-container-wide: min(100% - 6rem, 1440px);
+    --bc-header-height: 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --bc-header-height: 56px;
+  }
+}
+
+/* ---------------------------------------
+   3. OVERRIDE DAWN — Echelle globale & Tailles forcees
+   --------------------------------------- */
+
+:root {
+  --font-body-scale: 1.0;
+  --font-heading-scale: 1.0;
+}
+
+/* Tailles elegantes et professionnelles pour tous les textes Dawn */
+body,
+.body,
+.rte p,
+.text-block,
+.shopify-payment-button__button,
+.cart-item__name,
+.cart-item__details,
+.product__description,
+.article-template__content,
+.collection-hero__description,
+.customer p,
+.contact-form p,
+.product__text,
+.product-single__description,
+.template-search .search__text,
+.template-blog .blog__text,
+.collection__description {
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+}
+
+/* h1 partout */
+h1,
+.h1,
+.title--primary,
+.product__title h1,
+.product__title .h1,
+.page-title,
+.collection-hero__title,
+.article-template__title,
+.main-page-title,
+.customer h1 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 48px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+}
+
+/* h2 partout */
+h2,
+.h2,
+.card__heading,
+.card__heading a,
+.product__title .h2,
+.featured-collection .title,
+.multicolumn .title,
+.collection-list .title,
+.blog .title,
+.template-collection .title,
+.section-title,
+.title-wrapper-with-link .title,
+.heading,
+.rte h2 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 36px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.15 !important;
+}
+
+/* h3 partout */
+h3,
+.h3,
+.card__heading.h3,
+.product__title .h3,
+.rte h3 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 28px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.2 !important;
+}
+
+/* Prices */
+.price,
+.price-item,
+.price .price-item--regular,
+.price .price-item--sale,
+.price--large .price-item,
+.product__price .price-item,
+.cart-item__price {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+}
+
+.price--sale .price-item--sale {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: var(--bc-sale);
+}
+
+/* Boutons */
+.shopify-payment-button__button,
+.product-form__submit,
+.button,
+.cart__checkout-button,
+.customer button,
+.customer .button {
+  font-size: 16px !important;
+}
+
+/* Nos classes boutons personnalisees */
+.btn {
+  font-size: 16px;
+  padding: 1rem 2.5rem !important;
+  min-height: auto !important;
+}
+
+/* ---------------------------------------
+   4. TYPOGRAPHIE — Classes utilitaires
+   --------------------------------------- */
+.text-heading {
+  font-family: var(--bc-font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.text-body {
+  font-family: var(--bc-font-body);
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+/* Headings */
+.heading-xl {
+  font-family: var(--bc-font-heading);
+  font-size: clamp(var(--bc-text-4xl), 5vw, var(--bc-text-6xl));
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.heading-lg {
+  font-family: var(--bc-font-heading);
+  font-size: clamp(var(--bc-text-3xl), 4vw, var(--bc-text-5xl));
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.heading-md {
+  font-family: var(--bc-font-heading);
+  font-size: clamp(var(--bc-text-2xl), 3vw, var(--bc-text-3xl));
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heading-sm {
+  font-family: var(--bc-font-heading);
+  font-size: clamp(var(--bc-text-lg), 2vw, var(--bc-text-xl));
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+/* Body text */
+.body-lg {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-lg);
+  line-height: 1.7;
+}
+
+.body-base {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-base);
+  line-height: 1.6;
+}
+
+.body-sm {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-sm);
+  line-height: 1.5;
+}
+
+/* Label / Meta */
+.label {
+  font-family: var(--bc-font-body);
+  font-size: var(--bc-text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------------------------------------
+   5. COULEURS — Classes utilitaires
+   --------------------------------------- */
+.text-brand { color: var(--bc-bleu); }
+.text-accent { color: var(--bc-or); }
+.text-white { color: var(--bc-blanc); }
+.text-dark { color: var(--bc-noir); }
+.text-muted { color: var(--bc-gray); }
+
+.bg-brand { background-color: var(--bc-bleu); }
+.bg-accent { background-color: var(--bc-or); }
+.bg-white { background-color: var(--bc-blanc); }
+.bg-warm { background-color: var(--bc-warm-white); }
+.bg-dark { background-color: var(--bc-noir); }
+
+/* ---------------------------------------
+   6. BOUTONS — Premium
+   --------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bc-space-2);
+  font-family: var(--bc-font-body);
+  font-weight: 600;
+  font-size: var(--bc-text-sm);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all var(--bc-transition-base);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--bc-or);
+  outline-offset: 2px;
+}
+
+/* Primary — Bleu brand */
+.btn-primary {
+  background-color: var(--bc-bleu);
+  color: var(--bc-blanc);
+  padding: 1rem 2.5rem;
+  border-radius: var(--bc-radius-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--bc-brand-light);
+}
+
+/* Secondary — Or */
+.btn-secondary {
+  background-color: var(--bc-or);
+  color: var(--bc-bleu);
+  padding: 1rem 2.5rem;
+  border-radius: var(--bc-radius-sm);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bc-accent-hover);
+}
+
+/* Outline */
+.btn-outline {
+  background-color: transparent;
+  color: var(--bc-blanc);
+  padding: 1rem 2.5rem;
+  border-radius: var(--bc-radius-sm);
+  border: 2px solid rgba(var(--bc-blanc-rgb), 0.35);
+}
+
+.btn-outline:hover {
+  border-color: var(--bc-or);
+  color: var(--bc-or);
+}
+
+/* Large */
+.btn-lg {
+  padding: 1rem 2.5rem;
+  font-size: var(--bc-text-base);
+  font-weight: 600;
+}
+
+/* Full width */
+.btn-block {
+  width: 100%;
+}
+
+/* ---------------------------------------
+   7. CONTENEURS
+   --------------------------------------- */
+.bc-container {
+  width: 100%;
+  max-width: var(--bc-container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.bc-container--narrow {
+  max-width: var(--bc-container-narrow);
+}
+
+.bc-container--wide {
+  max-width: var(--bc-container-wide);
+}
+
+/* ---------------------------------------
+   8. SECTIONS
+   --------------------------------------- */
+.section-padding {
+  padding: var(--bc-space-16) 0;
+}
+
+.section-padding--lg {
+  padding: var(--bc-space-24) 0;
+}
+
+.section-padding--xl {
+  padding: var(--bc-space-32) 0;
+}
+
+/* ---------------------------------------
+   9. LOGO INVERSION
+   --------------------------------------- */
+.logo--invert {
+  filter: brightness(0) invert(1);
+}
+
+.logo--accent {
+  filter: brightness(0) saturate(100%) sepia(30%) hue-rotate(350deg);
+}
+
+/* ---------------------------------------
+   10. ANIMATIONS — Scroll Reveal
+   --------------------------------------- */
+.bc-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bc-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bc-reveal-delay-1 { transition-delay: 100ms; }
+.bc-reveal-delay-2 { transition-delay: 200ms; }
+.bc-reveal-delay-3 { transition-delay: 300ms; }
+.bc-reveal-delay-4 { transition-delay: 400ms; }
+.bc-reveal-delay-5 { transition-delay: 500ms; }
+
+/* ---------------------------------------
+   11. SELECTION
+   --------------------------------------- */
+::selection {
+  background-color: var(--bc-or);
+  color: var(--bc-bleu);
+}
+
+/* ---------------------------------------
+   12. SCROLLBAR
+   --------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bc-warm-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bc-warm-gray);
+  border-radius: var(--bc-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bc-gray);
+}
+
+/* ---------------------------------------
+   13. HEADER STICKY
+   --------------------------------------- */
+.announcement-bar {
+  position: relative;
+  z-index: calc(var(--bc-z-header) + 1);
+}
+
+.section-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--bc-z-header);
+  transition: transform var(--bc-transition-slow);
+}
+
+.section-header.shopify-section-header-hidden {
+  transform: translateY(-100%);
+}
+
+/* ---------------------------------------
+   14. MISC UTILITIES
+   --------------------------------------- */
+.underline-accent {
+  background-image: linear-gradient(to right, var(--bc-or), var(--bc-or));
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--bc-border);
+  border: none;
+  margin: 0;
+}
+
+.divider--gold {
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--bc-or), transparent);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ---------------------------------------
+   15. TRANSITIONS LIQUIDES
+   --------------------------------------- */
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

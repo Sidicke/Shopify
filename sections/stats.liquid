@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="{{ 'premium-home.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{%- assign section_id = section.id -%}
+{%- assign bg_class = section.settings.color_scheme -%}
+
+<div class="stats-section">
+  <div class="bc-container">
+    <div class="stats-section__header bc-reveal">
+      <span class="stats-section__label">{{ section.settings.label }}</span>
+      <h2 class="stats-section__title">{{ section.settings.title }}</h2>
+    </div>
+    <div class="stats-section__grid">
+      {%- for block in section.blocks -%}
+        <div class="stats-section__item bc-reveal bc-reveal-delay-{{ forloop.index }}">
+          <div class="stats-section__number">{{ block.settings.number }}</div>
+          <p class="stats-section__label-item">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Statistiques",
+  "tag": "section",
+  "class": "section section-stats",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "BAO CONSILIUM EN CHIFFRES"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "La puissance du commerce augmenté"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Palette de couleurs",
+      "default": "scheme-3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistique",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Chiffre",
+          "default": "99%"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description",
+          "default": "Statistique clé"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Statistiques",
+      "blocks": [
+        { "type": "stat", "settings": { "number": "50+", "text": "Pays partenaires" } },
+        { "type": "stat", "settings": { "number": "200+", "text": "Produits sourcés" } },
+        { "type": "stat", "settings": { "number": "98%", "text": "Clients satisfaits" } },
+        { "type": "stat", "settings": { "number": "24/7", "text": "Support disponible" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

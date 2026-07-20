@@ -1,0 +1,137 @@
+<link rel="stylesheet" href="{{ 'premium-home.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<div class="testimonials">
+  <div class="bc-container">
+    <div class="testimonials__header bc-reveal">
+      {%- if section.settings.label != blank -%}
+        <span class="testimonials__label">{{ section.settings.label }}</span>
+      {%- endif -%}
+      <h2 class="testimonials__title">{{ section.settings.title }}</h2>
+    </div>
+    <div class="testimonials__grid">
+      {%- for block in section.blocks -%}
+        <div class="testimonials__card bc-reveal bc-reveal-delay-{{ forloop.index }}">
+          <div class="testimonials__stars">
+            {%- assign rating = block.settings.rating | default: 5 -%}
+            {%- for i in (1..rating) -%}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            {%- endfor -%}
+          </div>
+          <p class="testimonials__quote">"{{ block.settings.quote }}"</p>
+          <div class="testimonials__author">
+            <div class="testimonials__avatar">
+              {%- if block.settings.avatar != blank -%}
+                {{ block.settings.avatar | image_url: width: 88 | image_tag: loading: 'lazy' }}
+              {%- else -%}
+                {{ block.settings.name | slice: 0 | upcase }}
+              {%- endif -%}
+            </div>
+            <div class="testimonials__info">
+              <p class="testimonials__name">{{ block.settings.name }}</p>
+              <p class="testimonials__role">{{ block.settings.role }}</p>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Témoignages",
+  "tag": "section",
+  "class": "section section-testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "ILS NOUS FONT CONFIANCE"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Ce que disent nos partenaires"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Témoignage",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Note",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Citation",
+          "default": "BAO CONSILIUM a transformé notre façon d'importer. Leur approche digitale nous a ouvert des marchés que nous n'aurions jamais imaginés."
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Avatar"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nom",
+          "default": "Jean Dupont"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Rôle",
+          "default": "Importateur, Cotonou"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Témoignages",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "BAO CONSILIUM a transformé notre façon d'importer. Leur approche digitale nous a ouvert des marchés que nous n'aurions jamais imaginés.",
+            "name": "Jean Dupont",
+            "role": "Importateur, Cotonou"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Leur plateforme est incroyablement fluide. Enfin un partenaire qui comprend les vrais besoins des commerçants africains.",
+            "name": "Amara Koné",
+            "role": "Distributeur, Abidjan"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 4,
+            "quote": "Grâce à BAO CONSILIUM, nous avons réduit nos délais d'approvisionnement de 40%. Un vrai game-changer pour notre business.",
+            "name": "Fatima Diallo",
+            "role": "CEO, Dakar"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
