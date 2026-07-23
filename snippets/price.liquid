@@ -26,17 +26,21 @@
   assign price_min = product.price_min
   assign price_max = product.price_max
   assign available = target.available | default: false
-  assign money_price = price | money
-  assign money_price_min = price_min | money
-  assign money_price_max = price_max | money
-  if settings.currency_code_enabled
-    assign money_price = price | money_with_currency
-    assign money_price_min = price_min | money_with_currency
-    assign money_price_max = price_max | money_with_currency
-  endif
+
+  assign raw_price = price | money_without_currency | strip
+  assign raw_price_min = price_min | money_without_currency | strip
+  assign raw_price_max = price_max | money_without_currency | strip
+
+  assign money_price = raw_price | append: ' <span class="currency-label">FCFA</span>'
+  assign money_price_min = raw_price_min | append: ' <span class="currency-label">FCFA</span>'
+  assign money_price_max = raw_price_max | append: ' <span class="currency-label">FCFA</span>'
 
   if target == product and product.price_varies
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  endif
+
+  if compare_at_price
+    assign compare_at_money = compare_at_price | money_without_currency | strip | append: ' <span class="currency-label">FCFA</span>'
   endif
 -%}
 
@@ -67,11 +71,7 @@
               </span>
               <span>
                 <s class="price-item price-item--regular variant-item__old-price">
-                  {% if settings.currency_code_enabled %}
-                    {{ compare_at_price | money_with_currency }}
-                  {% else %}
-                    {{ compare_at_price | money }}
-                  {% endif %}
+                  {{ compare_at_money }}
                 </s>
               </span>
             {%- endunless -%}
@@ -95,11 +95,7 @@
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span>
             <s class="price-item price-item--regular">
-              {% if settings.currency_code_enabled %}
-                {{ compare_at_price | money_with_currency }}
-              {% else %}
-                {{ compare_at_price | money }}
-              {% endif %}
+              {{ compare_at_money }}
             </s>
           </span>
         {%- endunless -%}

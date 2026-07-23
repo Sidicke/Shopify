@@ -291,7 +291,13 @@
             </div>
           </div>
           {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
-          {% if quick_add == 'standard' %}
+          {%- liquid
+            assign show_quick_add = false
+            if quick_add == 'standard' or quick_add == blank or quick_add == nil
+              assign show_quick_add = true
+            endif
+          -%}
+          {% if show_quick_add %}
             <div class="quick-add no-js-hidden">
               {%- liquid
                 assign qty_rules = false
@@ -391,34 +397,34 @@
               {%- endif -%}
             </div>
           {% elsif quick_add == 'bulk' %}
-            {% if card_product.variants_count == 1 %}
-              <quick-add-bulk
-                data-min="{{ card_product.selected_or_first_available_variant.quantity_rule.min }}"
-                id="quick-add-bulk-{{ card_product.selected_or_first_available_variant.id }}-{{ section.id }}"
-                class="quick-add-bulk"
-                data-index="{{ card_product.selected_or_first_available_variant.id }}"
-              >
-                {% if card_product.selected_or_first_available_variant.available == false %}
-                  <button
-                    id="{{ product_form_id }}-submit"
-                    type="submit"
-                    name="add"
-                    class="quick-add__submit button button--full-width button--secondary"
-                    aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
-                    data-sold-out-message="true"
-                    disabled
-                  >
-                    <span>{{ 'products.product.sold_out' | t }}</span>
-                    <span class="sold-out-message hidden">
-                      {{ 'products.product.sold_out' | t }}
-                    </span>
-                  </button>
-                {% else %}
-                  {% render 'quantity-input', variant: card_product.selected_or_first_available_variant, min: 0 %}
-                {% endif %}
-              </quick-add-bulk>
-            {% else %}
-              <div class="quick-add no-js-hidden">
+            <div class="quick-add no-js-hidden">
+              {% if card_product.variants_count == 1 %}
+                <quick-add-bulk
+                  data-min="{{ card_product.selected_or_first_available_variant.quantity_rule.min }}"
+                  id="quick-add-bulk-{{ card_product.selected_or_first_available_variant.id }}-{{ section.id }}"
+                  class="quick-add-bulk"
+                  data-index="{{ card_product.selected_or_first_available_variant.id }}"
+                >
+                  {% if card_product.selected_or_first_available_variant.available == false %}
+                    <button
+                      id="{{ product_form_id }}-submit"
+                      type="submit"
+                      name="add"
+                      class="quick-add__submit button button--full-width button--secondary"
+                      aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
+                      data-sold-out-message="true"
+                      disabled
+                    >
+                      <span>{{ 'products.product.sold_out' | t }}</span>
+                      <span class="sold-out-message hidden">
+                        {{ 'products.product.sold_out' | t }}
+                      </span>
+                    </button>
+                  {% else %}
+                    {% render 'quantity-input', variant: card_product.selected_or_first_available_variant, min: 0 %}
+                  {% endif %}
+                </quick-add-bulk>
+              {% else %}
                 {%- liquid
                   assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id
                   assign qty_rules = false
@@ -547,8 +553,8 @@
                     </div>
                   </div>
                 </modal-dialog>
-              </div>
-            {% endif %}
+              {% endif %}
+            </div>
           {% endif %}
           <div class="card__badge {{ settings.badge_position }}">
             {%- if card_product.available == false -%}
